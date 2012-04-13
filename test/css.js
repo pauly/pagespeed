@@ -24,6 +24,16 @@ describe( 'pagespeed', function( ) {
       result.should.eql( '<html><head></head><body><link rel="stylesheet"/></body></html>' );
     } );
 
+    it( 'moves inline styles too', function ( ) {
+      var result = pagespeed.css_to_head( '<html><head></head><body><style>div { width: 1 }</style></body></html>' );
+      result.should.eql( '<html><head><style>div { width: 1 }</style></head><body></body></html>' );
+    } );
+
+    it( 'does not mess with things between style tags', function ( ) {
+      var result = pagespeed.css_to_head( '<html><head></head><body><style>div { width: 1 }</style><p>some content</p><style>p { width: 2 }</style></body></html>' );
+      result.should.eql( '<html><head><style>div { width: 1 }</style><style>p { width: 2 }</style></head><body><p>some content</p></body></html>' );
+    } );
+
   } );
 
 } );
