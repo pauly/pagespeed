@@ -12,3 +12,6 @@ To use:
       app.use( pagespeed( { debug: false, no_strip: false } ));
       ...
 
+Continuous integration:
+
+    <a href="http://travis-ci.org/pauly/pagespeed"><img src="https://secure.travis-ci.org/pauly/pagespeed.png" alt="Build Status"></a>
