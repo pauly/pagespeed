@@ -18,13 +18,10 @@ describe( 'pagespeed', function( ) {
       var result = pagespeed.js_to_bottom( '<html><head><script src="foo.js"></script></head><body><p>hello</p><script src="bar.js"></script></body></html>' );
       result.should.eql( '<html><head></head><body><p>hello</p><script src="foo.js"></script><script src="bar.js"></script></body></html>' );
     } );
-  } );
 
-  describe( 'css to head', function( ) {
-
-    it( 'does not change the output if there is no css', function( ) {
-      var result = pagespeed.js_to_bottom( '<html><body></body></html>' );
-      result.should.eql( '<html><body></body></html>' );
+    it( 'does not touch a page with no /body', function( ) {
+      var result = pagespeed.js_to_bottom( '<html><head><script src="foo.js"></script></head></html>' );
+      result.should.eql( '<html><head><script src="foo.js"></script></head></html>' );
     } );
 
   } );

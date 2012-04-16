@@ -2,11 +2,15 @@
   "author": "Paul Clarke <paul.clarke@holidayextras.com> (http://www.clarkeology.com)",
   "name": "pagespeed",
   "description": "Page speed skills for node + express",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": {
     "type": "git",
     "url": "git://github.com/pauly/pagespeed.git"
   },
+  "contributors": [
+    "Jack Crawford <jack.crawford@holidayextras.com>"
+  ],
+  "keywords": [ "pagespeed", "page speed", "express", "middleware" ],
   "main": "lib/main.js",
   "scripts": {
     "test": "mocha test/*.js"
