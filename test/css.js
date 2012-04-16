@@ -34,6 +34,13 @@ describe( 'pagespeed', function( ) {
       result.should.eql( '<html><head><style>div { width: 1 }</style><style>p { width: 2 }</style></head><body><p>some content</p></body></html>' );
     } );
 
+    it( 'does not mess with browser specific stuff', function ( ) {
+      var result = pagespeed.css_to_head( '<html><head></head><body><!--[if lt IE 7 ]> <link rel="stylesheet" type="text/css" href="foo.css" /> <![endif]--></body></html>' );
+      result.should.eql( '<html><head><!--[if lt IE 7 ]> <link rel="stylesheet" type="text/css" href="foo.css" /> <![endif]--></head><body></body></html>' );
+      result = pagespeed.css_to_head( "<html><head></head><body><!--[if lt IE 7 ]>\n\t" + '<link rel="stylesheet" type="text/css" href="foo.css" /><![endif]--></body></html>' );
+      result.should.eql( "<html><head><!--[if lt IE 7 ]>\n\t" + '<link rel="stylesheet" type="text/css" href="foo.css" /><![endif]--></head><body></body></html>' );
+    } );
+
   } );
 
 } );

@@ -24,6 +24,11 @@ describe( 'pagespeed', function( ) {
       result.should.eql( '<html><head><script src="foo.js"></script></head></html>' );
     } );
 
+    it( 'does not mess with browser specific stuff', function ( ) {
+      var result = pagespeed.js_to_bottom( '<html><body><!--[if lt IE 7 ]> <script src="foo.js"></script> <![endif]--><p>hello</p></body></html>' );
+      result.should.eql( '<html><body><p>hello</p><!--[if lt IE 7 ]> <script src="foo.js"></script> <![endif]--></body></html>' );
+    } );
+
   } );
 
 } );

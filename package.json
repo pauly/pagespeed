@@ -2,7 +2,7 @@
   "author": "Paul Clarke <paul.clarke@holidayextras.com> (http://www.clarkeology.com)",
   "name": "pagespeed",
   "description": "Page speed skills for node + express",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "repository": {
     "type": "git",
     "url": "git://github.com/pauly/pagespeed.git"
